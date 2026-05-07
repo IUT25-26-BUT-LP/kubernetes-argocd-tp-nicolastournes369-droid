@@ -1,0 +1,21 @@
+name: Security CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Trivy Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: nginx:latest
+          severity: HIGH,CRITICAL
+          exit-code: 1
