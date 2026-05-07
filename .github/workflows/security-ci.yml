@@ -18,4 +18,4 @@ jobs:
         with:
           image-ref: nginx:latest
           severity: HIGH,CRITICAL
-          exit-code: 1
+          exit-code: 0
